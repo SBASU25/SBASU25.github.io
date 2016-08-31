@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	  <title>Go Fish!</title>
+	  <link rel="icon" href="http://www.clipartbest.com/cliparts/MiL/jKz/MiLjKzLia.png" type="image/gif" sizes="16x16">
+	  
+	  <style>
+	   body{
+			background-image: url("https://s-media-cache-ak0.pinimg.com/originals/08/1f/8c/081f8cd08585e1040a8393c25b274126.jpg");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center; 
+			color: white;
+			background-size:cover;
+		}
+			font-size: 100%;
+		.one{
+			background-color: #00CCFF;
+		}
+		img{
+			height: 100px;
+		}
+	  </style>
+ </head>
+ 
+ <body>
+  <center>
+	   <!-- You don't need to put these descriptors in your site -->
+	    <h1 style="font-size: 300%; color: #FFCC00">Go Fish !</h1>
+		<a style="font-size: 150%; color: #FFCC00">How Many Fish ? </a>
+		<input id="fishNum" type=number>
+		<!-- <button onclick="goFish(document.getElementById('fishNum').value)">Display Fish</button> -->
+		<br>
+	    <div class="one">
+		   <hr><br>
+		   <img src='http://icons.iconarchive.com/icons/fasticon/fish-toys/256/Green-Fish-icon.png'>
+		   <a>I am worth 1</a>
+		   <img src='http://www.clipartbest.com/cliparts/MiL/jKz/MiLjKzLia.png'>
+		   <a>I am worth 5</a>
+		   <img src='http://www.clker.com/cliparts/h/A/o/S/w/0/fish-yellow-md.png'>
+		   <a>I am worth 10</a>
+		   <img src='http://www.clipartbest.com/cliparts/Rid/gyk/Ridgykg5T.png'>
+		   <a>I am worth 100</a>
+		   <hr>
+	    </div>
+	   
+	    <div id="fish"></div>
+  </center>
+  
+  <script>
+  //JavaScript
+	var fishPresent = false;
+	setInterval(goFish,100);
+
+	
+	function goFish(){
+	  var N = document.getElementById("fishNum").value;
+	  
+	  if (fishPresent==true){
+		document.getElementById("fish").innerHTML="<img src=' '>";
+		fishPresent = false;
+		}
+		
+	  if (fishPresent==false){
+			displayFish();
+		}
+
+	  function displayFish(){
+		  while(N>=100){
+			document.getElementById("fish").innerHTML+="<img src='http://www.clipartbest.com/cliparts/Rid/gyk/Ridgykg5T.png'> "; 	
+			N=N-100;
+			if(N<100){
+				break;
+				}	
+		  }
+		  while(N>=10){
+			document.getElementById("fish").innerHTML+="<img src='http://www.clker.com/cliparts/h/A/o/S/w/0/fish-yellow-md.png'> "; 	
+			N=N-10;
+			if(N<10){
+				break;
+				}
+		  }
+		   while(N>=5){
+			document.getElementById("fish").innerHTML+="<img src='http://www.clipartbest.com/cliparts/MiL/jKz/MiLjKzLia.png'>";  	
+			N=N-5;
+			if(N<5){
+				break;
+				}
+		  }
+		  
+		  while(N != 0){
+			document.getElementById("fish").innerHTML+="<img src='http://icons.iconarchive.com/icons/fasticon/fish-toys/256/Green-Fish-icon.png'>"; 
+			N=N-1;
+		  }
+		fishPresent=true;
+		}
+ }
+  </script>
+ </body>
+</html>
